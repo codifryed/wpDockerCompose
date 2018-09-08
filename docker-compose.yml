@@ -2,7 +2,9 @@ version: '3'
 
 services:
   web:
-    image: wordpress:php7.2-apache
+    build: 
+      context: .
+      dockerfile: Dockerfile-wordpress
     ports:
     - "8080:80"
     environment:

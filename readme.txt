@@ -31,4 +31,4 @@ docker ps -a
 (when container is running:)
 docker exec -it container_name bash   (starts interactive bash session)
 cat /etc/passwd  (to see list of user IDs)
-usermod -u 1000 www-data  (should later add to dockerfile)
+usermod -u 1000 www-data  ( * currently added to dockerfile aka no more need)
