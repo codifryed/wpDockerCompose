@@ -9,11 +9,14 @@ services:
     - "8080:80"
     environment:
       WORDPRESS_DB_HOST: mysql:3306
-      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_DATABASE: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_TABLE_PREFIX: "wp333_"
       WORDPRESS_SITE_URL: "localhost:8080"
       WORDPRESS_SITE_DESCRIPTION: "This is where it all happens"
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: "/* Extra settings to change when deploying */\ndefine('FORCE_SSL_ADMIN', false);\ndefine('DISALLOW_FILE_MODS', false);\ndefine('DISALLOW_FILE_EDIT', false);\ndefine('WP_HOME','http://localhost:8080');\ndefine('WP_SITEURL','http://localhost:8080');"
     volumes:
     - ./data:/var/www/html
 
