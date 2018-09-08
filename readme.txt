@@ -18,7 +18,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ================
 mkdir of your choice for holding the data of the conatiners
 copy docker-compose.yml to this dir
-docker-compose up -d   (will initialize and download the images and start them)
+docker-compose up -d --build  (will initialize and download the images and start them)
 
 =================
 docker-compose down (will stop and remove the containers)
@@ -32,3 +32,7 @@ docker ps -a
 docker exec -it container_name bash   (starts interactive bash session)
 cat /etc/passwd  (to see list of user IDs)
 usermod -u 1000 www-data  ( * currently added to dockerfile aka no more need)
+
+manual sql dump:
+===================
+docker exec mysql sh -c 'exec mysqldump wordpress -u wordpress -p"wordpress"' > /var/lib/mysql/wordpress.sql
